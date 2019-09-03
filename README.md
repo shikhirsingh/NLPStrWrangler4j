@@ -17,7 +17,7 @@ Maven - be sure to check for latest version in Maven:
 
 ```
 <dependency>
-  <groupId>com.shikhir.datascience</groupId>
+  <groupId>com.shikhir</groupId>
   <artifactId>StrWrangler4j</artifactId>
   <version>1.0.0</version>
 </dependency>

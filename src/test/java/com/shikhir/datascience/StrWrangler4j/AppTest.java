@@ -7,13 +7,13 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import com.shikhir.datascience.StrWrangler4j.fileops.FileOpsUtil;
-import com.shikhir.datascience.StrWrangler4j.hash.CryptoHash;
-import com.shikhir.datascience.StrWrangler4j.hash.MurmurHash;
-import com.shikhir.datascience.StrWrangler4j.nlp.CleanText;
-import com.shikhir.datascience.StrWrangler4j.nlp.Stopwords;
+import com.shikhir.StrWrangler4j.fileops.FileOpsUtil;
+import com.shikhir.StrWrangler4j.hash.CryptoHash;
+import com.shikhir.StrWrangler4j.hash.MurmurHash;
+import com.shikhir.StrWrangler4j.nlp.CleanText;
+import com.shikhir.StrWrangler4j.nlp.Stopwords;
 
-import junit.framework.TestCase;
+import junit.framework.TestCase; 
 
 
 
@@ -53,7 +53,7 @@ public class AppTest
 			e.printStackTrace();
 		}
 		assertTrue(arrFile.length>4);
-		assertEquals(" NetAngels. 71557 : u71557 : kpWmVAsvLaaE7Mp", CleanText.cleanAll(arrFile[0]));
+		assertEquals("NetAngels. 71557 : u71557 : kpWmVAsvLaaE7Mp", CleanText.cleanAll(arrFile[0]));
 	}	
 	
 	@Test
