@@ -1,5 +1,7 @@
 package com.shikhir.StrWrangler4j.nlp;
 
+import com.shikhir.StrWrangler4j.suspect.StringConfusable;
+
 public class CleanText {
 
 	/** Removes non-ascii characters from string
@@ -68,4 +70,12 @@ public class CleanText {
 				).trim();
 	}
 
+	/** Swap all confusable text
+	 * 
+	 * @param suspectText the body from which the characters need to be corrected
+	 * @return the text after characters have been swapped
+	 */
+	public static String unconfuse(String suspectText) {
+		return StringConfusable.unconfuse(suspectText);
+	}
 }

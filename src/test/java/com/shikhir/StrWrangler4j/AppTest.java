@@ -13,6 +13,7 @@ import com.shikhir.StrWrangler4j.hash.MurmurHash;
 import com.shikhir.StrWrangler4j.nlp.CleanText;
 import com.shikhir.StrWrangler4j.nlp.Stopwords;
 
+import com.shikhir.StrWrangler4j.suspect.StringConfusable;
 import junit.framework.TestCase; 
 
 
@@ -40,6 +41,15 @@ public class AppTest
 		
 		assertEquals(removedStopWords, "Shikhir. test stopwords function remove stopwords.");
 	}
+	
+	@Test
+    public void testConfusable()
+    {
+    	String confusable = "ᔕE᙭Y ᔕᑌᑎ ᗪᖇEᔕᔕ ᗩᗷEᖇᑕᖇOᗰᗷIE & ᖴITᑕᕼ ᑎᗯOT ᗪIᔕTᖇEᔕᔕEᗪ ᖴᒪIᖇTY ᔕᑌᑎ ᗪᖇEᔕᔕ ᗯITᕼ ᗯᕼITE IᑎᔕIᗪE ᒪIᑎIᑎG ᗩᑎᗪ 2 ᗪEEᑭ ᔕIᗪE ᑭOᑕKETᔕ.";
+    	String unconfuse = StringConfusable.unconfuse(confusable).toLowerCase();
+    	assertEquals("sexy sun dress abercrombie & fitch nwot distressed flirty sun dress with white inside lining and 2 deep side pockets.", unconfuse);
+    }
+		
 	
 	@Test
 	public void testCleanText() {
