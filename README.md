@@ -19,7 +19,7 @@ Maven - be sure to check for latest version in Maven:
 <dependency>
   <groupId>com.shikhir</groupId>
   <artifactId>StrWrangler4j</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
@@ -50,6 +50,7 @@ CleanText.cleanAll(contaminatedText);
 **Version History**
 
 * 1.0.0 - Initial Release
+* 1.0.0 - minor updates to test code
 
 
 **Roadmap Features**
