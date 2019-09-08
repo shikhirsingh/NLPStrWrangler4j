@@ -3,6 +3,8 @@ package com.shikhir.StrWrangler4j;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
+import com.shikhir.StrWrangler4j.nlp.CleanText;
+
 
 public class StringOps {
 	private static final Logger log = Logger.getLogger(StringOps.class.getName());
@@ -31,12 +33,7 @@ public class StringOps {
         return -1; 
     } 
 	public static String cleanText(String text){
-		text = text.replaceAll("[^\\p{ASCII}]","");
-		text = text.replaceAll("\\s+", " "); 
-		text = text.replaceAll("\\p{Cntrl}", ""); 
-		text = text.replaceAll("[^\\p{Print}]", "");
-		text = text.replaceAll("\\p{C}", "");
-		return text;
+		return CleanText.cleanAll(text);
 	}
 
 	public static void sortStringArray(String[] str) {

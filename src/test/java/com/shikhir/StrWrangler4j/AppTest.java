@@ -2,8 +2,12 @@ package com.shikhir.StrWrangler4j;
 
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import org.junit.Test;
 
@@ -75,9 +79,38 @@ public class AppTest
 		assertEquals(CryptoHash.sha1_To_hex(testString), "0a4d55a8d778e5022fab701977c5d840bbc486d0");
 	}
 	
-	@Test
-	public void testNlpOperations() {
+	private int countCharacters(File file) throws IOException {
+	      FileInputStream fileStream = new FileInputStream(file);
+	      InputStreamReader input = new InputStreamReader(fileStream);
+	      BufferedReader reader = new BufferedReader(input);
+	      int charCount = 0;
+	      String data;        
+	      while((data = reader.readLine()) != null) {
+	         charCount += data.length();                        
+	      }            
+	      return charCount;
+	}
 	
+	@Test
+	public void testShuffle() {
+		ClassLoader classLoader = getClass().getClassLoader();
+		File fileInput = new File(classLoader.getResource("testing_dataset.csv").getFile());
+		File fileOutput = new File("./src/test/resources/outputFool.csv");
+		
+		
+		try {
+			FileOpsUtil.shuffleFile(fileInput, fileOutput, "UTF-8");
+			int inputFileCharCount = countCharacters(fileInput);
+			int outputFileCharCount = countCharacters(fileOutput);
+			//System.out.println(inputFileCharCount+" == "+outputFileCharCount);
+			assertEquals(inputFileCharCount, outputFileCharCount);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}	
 
 	@Test
