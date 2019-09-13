@@ -19,7 +19,7 @@ Maven - be sure to check for latest version in Maven:
 <dependency>
   <groupId>com.shikhir</groupId>
   <artifactId>StrWrangler4j</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 
@@ -53,6 +53,7 @@ CleanText.cleanAll(contaminatedText);
 * 1.0.1 - minor updates to test code
 * 1.0.2 - added string cosine and Levenshtein similarity code
 * 1.0.3 - bug fixes and shuffle functions
+* 1.0.4 - New ClassLoaderUtilz
 
 
 **Roadmap Features**
