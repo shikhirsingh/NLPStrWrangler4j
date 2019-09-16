@@ -21,7 +21,7 @@ public class CleanText {
 	 */
 
 	public static String stripContinuousWhitespace(String text) {
-		return text.replaceAll("\\s+", " "); 
+		return text.replaceAll("\\s+", " ").trim(); 
 	}
 	
 	/** Removes ASCII control characters from string

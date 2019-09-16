@@ -1,5 +1,7 @@
 package com.shikhir.StrWrangler4j.fileops;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
 public class ClassLoaderUtilz {
@@ -24,5 +26,13 @@ public class ClassLoaderUtilz {
 
         return url;
     }
+	public static InputStream getResourceAsStream(String resourceName, Class callingClass) {
+		URL url = getResource(resourceName, callingClass);
 
+		try {
+			return (url != null) ? url.openStream() : null;
+		} catch (IOException e) {
+			return null;
+		}
+	}
 }
