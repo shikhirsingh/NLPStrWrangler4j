@@ -5,7 +5,7 @@
 
 	<groupId>com.shikhir</groupId>
 	<artifactId>StrWrangler4j</artifactId>
-	<version>1.0.6</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>StrWrangler4j</name>
@@ -80,13 +80,18 @@
 			<artifactId>extjwnl-data-wn31</artifactId>
 			<version>1.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>nu.validator</groupId>
+			<artifactId>langdetect</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<parent>

@@ -11,12 +11,13 @@ import java.io.InputStreamReader;
 
 import org.junit.Test;
 
+import com.cybozu.labs.langdetect.LangDetectException;
 import com.shikhir.StrWrangler4j.fileops.FileOpsUtil;
 import com.shikhir.StrWrangler4j.hash.CryptoHash;
 import com.shikhir.StrWrangler4j.hash.MurmurHash;
 import com.shikhir.StrWrangler4j.nlp.CleanText;
 import com.shikhir.StrWrangler4j.nlp.Stopwords;
-
+import com.shikhir.StrWrangler4j.nlp.LanguageDetector;
 import com.shikhir.StrWrangler4j.suspect.StringConfusable;
 import junit.framework.TestCase; 
 
@@ -114,8 +115,15 @@ public class AppTest
 	}	
 
 	@Test
-	public void testStringConfusable() {
-		
+	public void testLanguage() {
+		try {
+			assertEquals(LanguageDetector.detect("Hello World"), "en"); 
+			assertEquals(LanguageDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"), "zh-cn");
+			
+		} catch (LangDetectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}	
 
 }
