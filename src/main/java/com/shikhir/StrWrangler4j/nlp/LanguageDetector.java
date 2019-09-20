@@ -1,5 +1,7 @@
 package com.shikhir.StrWrangler4j.nlp;
 
+import java.io.File;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import com.cybozu.labs.langdetect.Detector;
@@ -15,8 +17,16 @@ public class LanguageDetector {
 	
 	private LanguageDetector() throws LangDetectException {
 		URL profileResourceUrl = ClassLoaderUtilz.getResource("profiles/", LanguageDetector.class);
-		String profile = profileResourceUrl.getPath();
-		DetectorFactory.loadProfile(profile);
+		File profileFile;
+		try {
+			profileFile = new File(profileResourceUrl.toURI());
+			DetectorFactory.loadProfile(profileFile);
+
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			System.err.println("ERROR: Failure - Could not load profile necessary for Language Detector()");
+			e.printStackTrace();
+		}
 	}
 	
 	public static LanguageDetector getInstance() throws LangDetectException {
@@ -25,6 +35,7 @@ public class LanguageDetector {
 		}
 		return INSTANCE;
 	}
+	
 	/**
 	 * This method is used to test if the string contains characters that are from
 	 * the CJKV languages (Chinese, Japanese, Korean, or Vietnamese ).

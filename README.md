@@ -19,7 +19,7 @@ Maven - be sure to check for latest version in Maven:
 <dependency>
   <groupId>com.shikhir</groupId>
   <artifactId>StrWrangler4j</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.7</version>
 </dependency>
 ```
 
@@ -111,6 +111,7 @@ String stemmed = NlpOperations.stem("His government is seeking to renegotiate th
 * 1.0.4 - New ClassLoaderUtilz
 * 1.0.5 - small bug fixes
 * 1.1.0 - added language detection
+* 1.1.7 - fixed language detection bugs
 
 
 **Roadmap Features**

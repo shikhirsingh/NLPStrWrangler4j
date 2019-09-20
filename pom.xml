@@ -5,7 +5,7 @@
 
 	<groupId>com.shikhir</groupId>
 	<artifactId>StrWrangler4j</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.7</version>
 	<packaging>jar</packaging>
 
 	<name>StrWrangler4j</name>
