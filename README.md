@@ -44,48 +44,48 @@ CleanText.cleanAll(contaminatedText);
 
 * To detect a language
 ```
-	try {
-		LangDetector.getInstance();
-		System.out.println(LanguageDetector.detect("Hello World"));  // english
-		System.out.println(LanguageDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"));  // chinese
-		LanguageDetector.close(); // free up memory
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+try {
+	LangDetector.getInstance(); // loads language detection models
+	System.out.println(LanguageDetector.detect("Hello World"));  // english
+	System.out.println(LanguageDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"));  // chinese
+	LanguageDetector.close(); // closes language detection model to free up memory - close if no more predictions are needed
+} catch (Exception e) {
+	e.printStackTrace();
+}
 ```
 
 * To Murmur hash a string
 ```
-	final String testString = "Hello World";
-	int murmurTest1 = MurmurHash.hash32(testString);	
+final String testString = "Hello World";
+int murmurTest1 = MurmurHash.hash32(testString);	
 ```
 
 * To remove stop words
 ```
-	String sentence = "Hello my name is Shikhir. This is a test to see if the stopwords function actually remove all the stopwords.";
-	String removedStopWords = Stopwords.removeStopWords(sentence);
+String sentence = "Hello my name is Shikhir. This is a test to see if the stopwords function actually remove all the stopwords.";
+String removedStopWords = Stopwords.removeStopWords(sentence);
 ```
 
 * To remove confusables strings (Unicode characters that look english)
 ```
-    	String confusable = "ᔕE᙭Y ᔕᑌᑎ ᗪᖇEᔕᔕ ᗩᗷEᖇᑕᖇOᗰᗷIE & ᖴITᑕᕼ ᑎᗯOT ᗪIᔕTᖇEᔕᔕEᗪ ᖴᒪIᖇTY ᔕᑌᑎ ᗪᖇEᔕᔕ ᗯITᕼ ᗯᕼITE IᑎᔕIᗪE ᒪIᑎIᑎG ᗩᑎᗪ 2 ᗪEEᑭ ᔕIᗪE ᑭOᑕKETᔕ.";
-    	String unconfuse = StringConfusable.unconfuse(confusable);
+String confusable = "ᔕE᙭Y ᔕᑌᑎ ᗪᖇEᔕᔕ ᗩᗷEᖇᑕᖇOᗰᗷIE & ᖴITᑕᕼ ᑎᗯOT ᗪIᔕTᖇEᔕᔕEᗪ ᖴᒪIᖇTY ᔕᑌᑎ ᗪᖇEᔕᔕ ᗯITᕼ ᗯᕼITE IᑎᔕIᗪE ᒪIᑎIᑎG ᗩᑎᗪ 2 ᗪEEᑭ ᔕIᗪE ᑭOᑕKETᔕ.";
+String unconfuse = StringConfusable.unconfuse(confusable);
 ```
 
 * To shuffle a csv file
 ```
-		ClassLoader classLoader = getClass().getClassLoader();
-		File fileInput = new File("testing_dataset.csv").getFile());
-		File fileOutput = new File("outputFile.csv");		
-		try {
-			FileOpsUtil.shuffleFile(fileInput, fileOutput, "UTF-8");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+ClassLoader classLoader = getClass().getClassLoader();
+File fileInput = new File("testing_dataset.csv").getFile());
+File fileOutput = new File("outputFile.csv");		
+try {
+	FileOpsUtil.shuffleFile(fileInput, fileOutput, "UTF-8");
+} catch (FileNotFoundException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+} catch (IOException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
 ```
 
 * To find Similarity of two string
