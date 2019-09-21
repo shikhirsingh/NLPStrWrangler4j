@@ -18,6 +18,7 @@ import com.shikhir.StrWrangler4j.hash.MurmurHash;
 import com.shikhir.StrWrangler4j.nlp.CleanText;
 import com.shikhir.StrWrangler4j.nlp.Stopwords;
 import com.shikhir.StrWrangler4j.nlp.LangDetector;
+import com.shikhir.StrWrangler4j.nlp.NlpOperations;
 import com.shikhir.StrWrangler4j.suspect.StringConfusable;
 import junit.framework.TestCase; 
 
@@ -70,6 +71,14 @@ public class AppTest
 		assertTrue(arrFile.length>4);
 		assertEquals("NetAngels. 71557 : u71557 : kpWmVAsvLaaE7Mp", CleanText.cleanAll(arrFile[0]));
 	}	
+	@Test
+	public void testSimilarity() {
+		int levenshtein_similarity = (int) (NlpOperations.levenshteinSimilarity("Its Hello world!", "Its Jello world!") * 100);
+		int cosine_similarity = (int) (NlpOperations.cosineSimilarity("Its Hello world!", "Its Jello world!") * 100);
+	
+		assertEquals(levenshtein_similarity, 93);
+		assertEquals(cosine_similarity, 96);
+	}
 	
 	@Test
 	public void testHashTests() {
@@ -115,11 +124,18 @@ public class AppTest
 	}	
 
 	@Test
+	public void testStemming() {
+		String news= "His government is seeking to renegotiate the withdrawal deal agreed by his predecessor, Theresa May.";
+		String expected = "Hi govern is seek to renegoti the withdraw deal agre by hi predecessor, Theresa May."; // note His is now Hi! - yikes, not good! 
+		String stemmed = NlpOperations.stem(news);
+		assertEquals(stemmed, expected);
+	}
+	
+	@Test
 	public void testLanguage() {
 		try {
 			assertEquals(LangDetector.detect("Hello World"), "en"); 
 			assertEquals(LangDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"), "zh-cn");
-			System.out.println(LangDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"));
 			
 		} catch (LangDetectException e) {
 			// TODO Auto-generated catch block

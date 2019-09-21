@@ -19,7 +19,7 @@ Maven - be sure to check for latest version in Maven:
 <dependency>
   <groupId>com.shikhir</groupId>
   <artifactId>StrWrangler4j</artifactId>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
 </dependency>
 ```
 
@@ -27,12 +27,12 @@ Maven - be sure to check for latest version in Maven:
 
 * Load a small file quickly
 ```
-String [] arrFile = 	null
+String [] arrFile = 	null;
 try{
 	arrFile = FileOpsUtil.loadFile(file ,"UTF-8");
 }
 catch(Exception e){
-
+	e.printStackTrace();
 }
 ```
 
@@ -45,8 +45,10 @@ CleanText.cleanAll(contaminatedText);
 * To detect a language
 ```
 	try {
+		LangDetector.getInstance();
 		System.out.println(LanguageDetector.detect("Hello World"));  // english
 		System.out.println(LanguageDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"));  // chinese
+		LanguageDetector.close(); // free up memory
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
@@ -88,8 +90,8 @@ CleanText.cleanAll(contaminatedText);
 
 * To find Similarity of two string
 ```
-double levenshtein_similarity = NlpOperations.levenshteinSimilarity("Hello world!", "Jello world!");
-double cosine_similarity = NlpOperations.cosineSimilarity("Hello world!", "Jello world!");
+double levenshtein_similarity = NlpOperations.levenshteinSimilarity("Its Hello world!", "Its Jello world!") * 100.0;
+double cosine_similarity = NlpOperations.cosineSimilarity("Its Hello world!", "Its Jello world!") * 100.0;
 
 ```
 
@@ -98,6 +100,8 @@ double cosine_similarity = NlpOperations.cosineSimilarity("Hello world!", "Jello
 String stemmed = NlpOperations.stem("His government is seeking to renegotiate the withdrawal deal agreed by his predecessor, Theresa May.");
 ```
 
+* Running examples
+You can find working examples in the test code located at /src/test/java/
 
 **LICENSE**
 * Apache 2.0
@@ -113,6 +117,8 @@ String stemmed = NlpOperations.stem("His government is seeking to renegotiate th
 * 1.1.0 - added language detection
 * 1.1.7 - fixed language detection bugs
 * 1.1.9 - finally fixed lang detection classpath issues
+* 1.2.1 - removed unneeded libraries
+* 1.2.2 - added close method for lang detection to save memory
 
 
 **Roadmap Features**

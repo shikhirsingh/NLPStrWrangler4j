@@ -45,22 +45,6 @@ public class LangDetector {
 		   in.close();
 		 }
 		
-		/*
-		
-		
-		java.io.InputStream in = ClassLoaderUtilz.getResourceAsStream("lang-profile.csv", LangDetector.class);
-		Reader targetReader = new InputStreamReader(in);
-
-        CSVParser csvParser = new CSVParser(targetReader, CSVFormat.DEFAULT);
-
-
-        for (CSVRecord csvRecord : csvParser) {
-        	String lang = csvRecord.get(0);
-        	String aProfile = csvRecord.get(1);
-        	
-        	profilesAl.add(aProfile);
-        }
-        */
         DetectorFactory.loadProfile(profilesAl);
         langList = DetectorFactory.getLangList();
 	}
@@ -70,6 +54,12 @@ public class LangDetector {
 		Detector detector = DetectorFactory.create();
 		detector.append(text);
 		return detector.detect();
+	}
+
+  	
+  	public static List<String> getLanguages() throws LangDetectException, IOException {
+  		getInstance();
+  		return langList;
 	}
 
 
@@ -105,6 +95,12 @@ public class LangDetector {
 		    offset += Character.charCount(codepoint);
 		}
 		return counter;
+	}
+	
+	public static void close() {
+		INSTANCE=null;
+		langList=null;
+		System.gc();
 	}
 	
 }
