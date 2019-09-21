@@ -19,7 +19,7 @@ Maven - be sure to check for latest version in Maven:
 <dependency>
   <groupId>com.shikhir</groupId>
   <artifactId>StrWrangler4j</artifactId>
-  <version>1.1.7</version>
+  <version>1.1.9</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ CleanText.cleanAll(contaminatedText);
 	try {
 		System.out.println(LanguageDetector.detect("Hello World"));  // english
 		System.out.println(LanguageDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"));  // chinese
-	} catch (LangDetectException e) {
+	} catch (Exception e) {
 		e.printStackTrace();
 	}
 ```
@@ -112,6 +112,7 @@ String stemmed = NlpOperations.stem("His government is seeking to renegotiate th
 * 1.0.5 - small bug fixes
 * 1.1.0 - added language detection
 * 1.1.7 - fixed language detection bugs
+* 1.1.9 - finally fixed lang detection classpath issues
 
 
 **Roadmap Features**
