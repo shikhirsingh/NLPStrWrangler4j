@@ -5,7 +5,7 @@
 
 	<groupId>com.shikhir</groupId>
 	<artifactId>StrWrangler4j</artifactId>
-	<version>1.1.9</version>
+	<version>1.2.1</version>
 	<packaging>jar</packaging>
 
 	<name>StrWrangler4j</name>
@@ -86,13 +86,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-configuration2</artifactId>
-			<version>2.6</version>
-		</dependency>
-		<!-- <dependency> <groupId>org.apache.tika</groupId> <artifactId>tika-core</artifactId> 
-			<version>1.22</version> </dependency> -->
 		<dependency>
 			<groupId>com.norconex.language</groupId>
 			<artifactId>langdetect</artifactId>

@@ -19,7 +19,7 @@ Maven - be sure to check for latest version in Maven:
 <dependency>
   <groupId>com.shikhir</groupId>
   <artifactId>StrWrangler4j</artifactId>
-  <version>1.1.9</version>
+  <version>1.2.1</version>
 </dependency>
 ```
 
@@ -88,7 +88,7 @@ CleanText.cleanAll(contaminatedText);
 
 * To find Similarity of two string
 ```
-double levenshtein_similarity = NlpOperations.levenshteinSimilarity("Hello!", "Jello!");
+double levenshtein_similarity = NlpOperations.levenshteinSimilarity("Hello world!", "Jello world!");
 double cosine_similarity = NlpOperations.cosineSimilarity("Hello world!", "Jello world!");
 
 ```
@@ -106,7 +106,7 @@ String stemmed = NlpOperations.stem("His government is seeking to renegotiate th
 
 * 1.0.0 - Initial Release
 * 1.0.1 - minor updates to test code
-* 1.0.2 - added string cosine and Levenshtein similarity code
+* 1.0.2 - added string cosine and Levenshtein similarity 
 * 1.0.3 - bug fixes and shuffle functions
 * 1.0.4 - New ClassLoaderUtilz
 * 1.0.5 - small bug fixes
