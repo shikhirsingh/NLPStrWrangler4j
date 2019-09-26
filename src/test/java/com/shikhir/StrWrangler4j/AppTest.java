@@ -16,6 +16,7 @@ import com.shikhir.StrWrangler4j.fileops.FileOpsUtil;
 import com.shikhir.StrWrangler4j.hash.CryptoHash;
 import com.shikhir.StrWrangler4j.hash.MurmurHash;
 import com.shikhir.StrWrangler4j.nlp.CleanText;
+import com.shikhir.StrWrangler4j.nlp.HumanLanguage;
 import com.shikhir.StrWrangler4j.nlp.Stopwords;
 import com.shikhir.StrWrangler4j.nlp.LangDetector;
 import com.shikhir.StrWrangler4j.nlp.NlpOperations;
@@ -134,7 +135,7 @@ public class AppTest
 	@Test
 	public void testLanguage() {
 		try {
-			assertEquals(LangDetector.detect("Hello World"), "en"); 
+			assertEquals(LangDetector.detect("Hello World"), HumanLanguage.ENGLISH.getISO639_1Code()); 
 			assertEquals(LangDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"), "zh-cn");
 			
 		} catch (LangDetectException e) {

@@ -19,15 +19,15 @@ Maven - be sure to check for latest version in Maven:
 <dependency>
   <groupId>com.shikhir</groupId>
   <artifactId>StrWrangler4j</artifactId>
-  <version>1.2.2</version>
+  <version>1.2.3</version>
 </dependency>
 ```
 
 **Just get me started ASAP!**
 
-* Load a small file quickly
+* Load a small file quickly into a string array. Will not load from classpath
 ```
-String [] arrFile = 	null;
+String [] arrFile = null;
 try{
 	arrFile = FileOpsUtil.loadFile(file ,"UTF-8");
 }
@@ -46,7 +46,8 @@ CleanText.cleanAll(contaminatedText);
 ```
 try {
 	LangDetector.getInstance(); // loads language detection models
-	System.out.println(LanguageDetector.detect("Hello World"));  // english
+	System.out.println(LanguageDetector.detect("Hello World"));  // english 
+																// See HumanLanguage.java for full language list
 	System.out.println(LanguageDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"));  // chinese
 	LanguageDetector.close(); // closes language detection model to free up memory - close if no more predictions are needed
 } catch (Exception e) {
@@ -54,7 +55,7 @@ try {
 }
 ```
 
-* To Murmur hash a string
+* To Murmur hash a string (very fast hashing algorithm)
 ```
 final String testString = "Hello World";
 int murmurTest1 = MurmurHash.hash32(testString);	
@@ -66,7 +67,7 @@ String sentence = "Hello my name is Shikhir. This is a test to see if the stopwo
 String removedStopWords = Stopwords.removeStopWords(sentence);
 ```
 
-* To remove confusables strings (Unicode characters that look english)
+* To remove confusables strings (Unicode characters that look english - used by bad actors to bypass spam filtering)
 ```
 String confusable = "ᔕE᙭Y ᔕᑌᑎ ᗪᖇEᔕᔕ ᗩᗷEᖇᑕᖇOᗰᗷIE & ᖴITᑕᕼ ᑎᗯOT ᗪIᔕTᖇEᔕᔕEᗪ ᖴᒪIᖇTY ᔕᑌᑎ ᗪᖇEᔕᔕ ᗯITᕼ ᗯᕼITE IᑎᔕIᗪE ᒪIᑎIᑎG ᗩᑎᗪ 2 ᗪEEᑭ ᔕIᗪE ᑭOᑕKETᔕ.";
 String unconfuse = StringConfusable.unconfuse(confusable);
@@ -100,8 +101,9 @@ double cosine_similarity = NlpOperations.cosineSimilarity("Its Hello world!", "I
 String stemmed = NlpOperations.stem("His government is seeking to renegotiate the withdrawal deal agreed by his predecessor, Theresa May.");
 ```
 
-* Running examples
-You can find working examples in the test code located at /src/test/java/
+**RUNNING EXAMPLES**
+
+* You can find working examples in the test code located at /src/test/java/
 
 **LICENSE**
 * Apache 2.0
@@ -119,7 +121,8 @@ You can find working examples in the test code located at /src/test/java/
 * 1.1.9 - finally fixed lang detection classpath issues
 * 1.2.1 - removed unneeded libraries
 * 1.2.2 - added close method for lang detection to save memory
+* 1.2.3 - added HumanLanguage class - yet to be integrated for prediction response
 
 
 **Roadmap Features**
-* Multi-language support
+* use HumanLanguage class for prediction
