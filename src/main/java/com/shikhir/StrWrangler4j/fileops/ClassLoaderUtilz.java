@@ -28,10 +28,18 @@ public class ClassLoaderUtilz {
     }
 	public static InputStream getResourceAsStream(String resourceName, Class callingClass) {
 		URL url = getResource(resourceName, callingClass);
-
+		
 		try {
-			return (url != null) ? url.openStream() : null;
+			if(url==null) {
+				InputStream inStream = callingClass.getResourceAsStream("/resources/" + resourceName);
+				if(inStream!=null) return inStream;
+				else return null;
+			}
+			return url.openStream();
 		} catch (IOException e) {
+			return null;
+		}
+		catch(Exception e) {
 			return null;
 		}
 	}

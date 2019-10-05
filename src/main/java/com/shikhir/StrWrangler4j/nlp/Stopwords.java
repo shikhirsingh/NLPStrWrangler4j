@@ -21,7 +21,7 @@ public class Stopwords {
 		if(stopWordSet.contains(word)) return true;
 		else return false;
 	}
-	
+
 	/** Removes all Stop words from a string
 	 *   
 	 * @param text The string that contains stop words that need to be removed

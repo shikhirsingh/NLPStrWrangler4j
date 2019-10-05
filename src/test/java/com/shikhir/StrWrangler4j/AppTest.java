@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Test;
 
 import com.cybozu.labs.langdetect.LangDetectException;
@@ -137,7 +138,6 @@ public class AppTest
 		try {
 			assertEquals(LangDetector.detect("Hello World"), HumanLanguage.ENGLISH.getISO639_1Code()); 
 			assertEquals(LangDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"), "zh-cn");
-			
 		} catch (LangDetectException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
