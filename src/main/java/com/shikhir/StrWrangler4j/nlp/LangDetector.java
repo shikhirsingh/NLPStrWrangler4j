@@ -97,6 +97,45 @@ public class LangDetector {
 		return counter;
 	}
 	
+	/**
+	 * This method is used to test if the string contains characters that are from
+	 * the Cyrillic languages. It counts the number of characters. 
+	 *   
+	 * @param text The string that needs tested for cyrillic 
+	 * @return the count of cyrillic characters in string
+	 * @since 1.0.0
+	 */
+	
+	public static int countCyrillic(String text) {
+		int count=0;
+		for(int i = 0; i < text.length(); i++) {
+		    if(Character.UnicodeBlock.of(text.charAt(i)).equals(Character.UnicodeBlock.CYRILLIC)) {
+		    	count++;
+		    }
+		}
+		return count;
+	}
+	
+	/**
+	 * This method is used to test if the string contains characters that are from
+	 * the Arabic languages. It counts the number of characters. 
+	 *   
+	 * @param text The string that needs tested for Cyrillic 
+	 * @return the count of Arabic characters in string
+	 * @since 1.0.0
+	 */
+	
+	public static int countArabic(String text) {
+		int count=0;
+		for(int i = 0; i < text.length(); i++) {
+		    if(Character.UnicodeBlock.of(text.charAt(i)).equals(Character.UnicodeBlock.ARABIC)) {
+		    	count++;
+		    }
+		}
+		return count;
+	}
+	
+	
 	public static void close() {
 		INSTANCE=null;
 		langList=null;

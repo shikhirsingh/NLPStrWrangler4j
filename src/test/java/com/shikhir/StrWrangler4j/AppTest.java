@@ -138,6 +138,9 @@ public class AppTest
 		try {
 			assertEquals(LangDetector.detect("Hello World"), HumanLanguage.ENGLISH.getISO639_1Code()); 
 			assertEquals(LangDetector.detect("您在马蜂窝预订的长沙往返哈尔滨"), "zh-cn");
+			assertEquals(LangDetector.countCyrillic("VK: 97786 - код для быстрой привязки нового номера к странице."), 42);
+			assertEquals(LangDetector.countCyrillic("Hello world! This is a negative test"), 0);
+			
 		} catch (LangDetectException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
