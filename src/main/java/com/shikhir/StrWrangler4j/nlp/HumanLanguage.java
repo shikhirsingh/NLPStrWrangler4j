@@ -13,7 +13,7 @@ public enum HumanLanguage {
 	ROMANIAN("RO"), RUSSIAN("RU"), SLOVAK("SK"),  SLOVENIAN("HU"),
 	SOMALI("SO"), ALBANIAN("SQ"), SWEDISH("SV"),  SWAHILI("SW"),
 	TAMIL("TA"), TELUGU("TE"), THAI("TH"),  TAGALOG("TL"),
-	TURKISH("TR"), UKRAINIAN("UK"), URDU("UR"),  VIETNAMESE("VI"),
+	TURKISH("TR"), UNKNOWN("UN"), UKRAINIAN("UK"), URDU("UR"), VIETNAMESE("VI"),
 	CHINESE_CN("ZH-CN"), CHINESE_TW("ZH-TW");
 
 	
@@ -26,5 +26,4 @@ public enum HumanLanguage {
     public String getISO639_1Code() {
         return code;
     }
-    
 }
