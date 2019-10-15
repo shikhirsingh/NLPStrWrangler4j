@@ -1,5 +1,8 @@
 package com.shikhir.StrWrangler4j.nlp;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum HumanLanguage {
 	AFRIKAANS("AF"), ARABIC("AR"), BULGARIAN("BG"),
 	BENGALI("BN"), CZECH("CS"), DANISH("DA"), GERMAN("DE"), 
@@ -18,11 +21,22 @@ public enum HumanLanguage {
 
 	
     private final String code;
+    private static Map<String, HumanLanguage> lookup = new HashMap<String, HumanLanguage>();
 
+    static {
+        for (HumanLanguage l : HumanLanguage.values()) {
+            lookup.put(l.getISO639_1Code(), l);
+        }
+    }
+    
     HumanLanguage(String code){
     	this.code=code.toLowerCase();
     }
 
+    public static HumanLanguage get(String iso639_1Code) {
+    	return lookup.get(iso639_1Code);
+    }
+    
     public String getISO639_1Code() {
         return code;
     }
